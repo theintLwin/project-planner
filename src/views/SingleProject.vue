@@ -7,7 +7,7 @@
         </div>
         
         <div>
-            <i class="fa-solid fa-trash"></i>
+            <i class="fa-solid fa-trash" @click="deleteProject"></i>
             <i class="fa-solid fa-pen"></i>
             <i class="fa-solid fa-check"></i>
         </div>
@@ -25,11 +25,25 @@ export default {
     props:['project'],
     data(){
         return{
-            showDetail:false
+            showDetail:false,
+            api:'http://localhost:3000/projects/'
+            
         }
     },
     methods:{
-   
+        deleteProject(){
+           // console.log("Hi");
+           //fetch(api+project.id,{method:"DELETE"})
+           let deleteRoute = this.api+this.project.id;
+           fetch(deleteRoute,{method:"DELETE"})
+           .then(()=>{
+               this.$emit("delete",this.project.id)
+           })
+           .catch((err)=>{
+               console.log(err.message());
+           })
+           
+        }
 }
 }
 </script>
