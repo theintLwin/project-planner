@@ -1,5 +1,5 @@
 <template>
-<div class="project" >
+<div class="project" :class="{complete:project.complete}" >
     <div class="flexing">
        
         <div>
@@ -8,11 +8,16 @@
         
         <div>
             <i class="fa-solid fa-trash" @click="deleteProject"></i>
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-check"></i>
+            <router-link :to="{name:'EditProject', params:{id:project.id}}">
+                <i class="fa-solid fa-pen"></i>
+            </router-link>
+            
+            <i class="fa-solid fa-check" @click="completeProject"></i>
         </div>
     </div>
-    <p v-if="showDetail">{{project.detail}}</p>
+    <p v-if="showDetail">{{project.detail}}   
+          
+</p>{{project.complete}}
     </div>
  
      
@@ -43,6 +48,26 @@ export default {
                console.log(err.message());
            })
            
+        },
+        completeProject(){
+            let updateCompleteRoute = this.api+this.project.id;
+            fetch(updateCompleteRoute, {
+                method:"PATCH",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(
+                {
+                    complete:!this.project.complete
+                }
+            )
+        })
+        .then(()=>{
+            this.$emit("complete",this.project.id)
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
         }
 }
 }
@@ -73,5 +98,8 @@ export default {
  }
  i:hover{
      color:#777;
+ }
+ .complete{
+     border-left-color: green;
  }
 </style>

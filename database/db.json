@@ -3,12 +3,26 @@
     {
       "id": 1,
       "title": "Project title 1",
-      "detail": "Project detail 3"
+      "detail": "Project detail 1",
+      "complete": false
     },
     {
-      "id": 3,
-      "title": "Project title 3",
-      "detail": "Project detail 3"
+      "id": 2,
+      "title": "Project title 2",
+      "detail": "Project detail 2",
+      "complete": true
+    },
+    {
+      "title": "test",
+      "detail": "test",
+      "complete": false,
+      "id": 3
+    },
+    {
+      "title": "GKS scholarship",
+      "detail": "Topik Level-5",
+      "complete": true,
+      "id": 4
     }
   ]
 }
