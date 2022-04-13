@@ -1,24 +1,31 @@
 <template>
   <div class="home">
+  
     <h1>Home</h1>
+    <FilterNav @filterValue="current = $event" :current="current"></FilterNav>
     <div v-for="project in projects" :key="project.id">
      <SingleProject :project="project" @delete="deleteProject" @complete="completeProject"></SingleProject>
     </div>
   </div>
+
 </template>
 
 <script>
 
+import FilterNav from '../components/FilterNav'
 import SingleProject from '../components/SingleProject'
 export default {
   name: 'HomeView',
   components: {
+    FilterNav,
     SingleProject,
     
   },
   data(){
     return{
-      projects:[]
+      projects:[],
+      current:"all",
+      
     }
   },
   methods:{
@@ -32,7 +39,7 @@ export default {
         return project.id === id;
       })
       result.complete = !result.complete;
-    }
+    }//this.current = value from (while firing event from child)
   },
   mounted(){
     fetch('http://localhost:3000/projects')

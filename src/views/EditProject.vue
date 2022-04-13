@@ -5,7 +5,7 @@
       <input type="text" v-model = "title">
       <label>Project Description</label>
       <input type="text" v-model="detail">
-      <button>Update Project</button>
+      <button @click="updateProject">Update Project</button>
   </form>
 </template>
 
@@ -18,6 +18,28 @@ export default {
         detail:""
       }
     },
+    methods:{
+       updateProject(){
+        fetch(' http://localhost:3000/projects/'+this.id,{
+          method:"PATCH",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify(
+            {
+              title:this.title,
+              detail:this.detail
+            }
+          )
+        })
+        .then(()=>{
+          this.$router.push({name:"home"})
+        })
+       // console.log("hi")
+    }
+  } ,
+      
+    
     mounted(){
       fetch('http://localhost:3000/projects/'+this.id)
       .then((res)=>{

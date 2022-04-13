@@ -2,25 +2,25 @@
   "projects": [
     {
       "id": 1,
-      "title": "Project title 1",
+      "title": "Project title 1 agaiiiin",
       "detail": "Project detail 1",
       "complete": false
     },
     {
       "id": 2,
-      "title": "Project title 2",
-      "detail": "Project detail 2",
+      "title": "Project title 2 New code",
+      "detail": "Project detail 2 New me",
       "complete": true
     },
     {
-      "title": "test",
-      "detail": "test",
+      "title": "test Result",
+      "detail": "test Pass",
       "complete": false,
       "id": 3
     },
     {
-      "title": "GKS scholarship",
-      "detail": "Topik Level-5",
+      "title": "GKS scholarship entrance",
+      "detail": "Topik Level-5 right now",
       "complete": true,
       "id": 4
     }
