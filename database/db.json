@@ -4,18 +4,18 @@
       "id": 1,
       "title": "Project title 1 agaiiiin",
       "detail": "Project detail 1",
-      "complete": false
+      "complete": true
     },
     {
       "id": 2,
       "title": "Project title 2 New code",
       "detail": "Project detail 2 New me",
-      "complete": true
+      "complete": false
     },
     {
       "title": "test Result",
       "detail": "test Pass",
-      "complete": false,
+      "complete": true,
       "id": 3
     },
     {
